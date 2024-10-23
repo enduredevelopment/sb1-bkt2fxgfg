@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: 'Inter var', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #030014;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  .mask-radial-faded {
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff 20%, #9f9f9f 30%, #fff 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 25px -10px rgba(168, 85, 247, 0.4); }
+  50% { box-shadow: 0 0 30px 5px rgba(168, 85, 247, 0.3); }
+  100% { box-shadow: 0 0 25px -10px rgba(168, 85, 247, 0.4); }
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(#030014, #030014) padding-box,
+              linear-gradient(to right, rgba(168, 85, 247, 0.5), rgba(129, 140, 248, 0.5)) border-box;
+  border: 3px solid transparent;
+  animation: borderRotate 8s linear infinite;
+}
+
+@keyframes borderRotate {
+  from { border-image-source: linear-gradient(0deg, rgba(168, 85, 247, 0.5), rgba(129, 140, 248, 0.5)); }
+  to { border-image-source: linear-gradient(360deg, rgba(168, 85, 247, 0.5), rgba(129, 140, 248, 0.5)); }
+}
+
+.animate-pulse-slow {
+  animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.3; }
+}
